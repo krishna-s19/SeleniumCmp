@@ -77,22 +77,24 @@ public class FindingMaxMinTvPrice {
 	}
 	
 	@Test(priority = 3)
-	public void findingMaxMinValues() {
-	WebElement el=	d.findElement(By.xpath("//input[contains(@title,'Search for Products')]"));
+	public void findingMaxMinValues() throws Exception {
+		WebElement el=	d.findElement(By.xpath("//input[contains(@title,'Search for Products')]"));
 		el.sendKeys("tv smart tv qled");
 		el.sendKeys(Keys.ENTER);
 		name = new ArrayList<String>();
 		price = new ArrayList<Integer>();
 		int total =0;
 		while(true) {
+			Thread.sleep(2000);
 			List<WebElement> eles = d.findElements(By.xpath("//div[contains(@class,'_1AtVbE col-12-12')]//following::div[contains(@data-id,'TVS')]"));
 			total = total+eles.size();
-			
+			Thread.sleep(2000);
 			for(WebElement ele:eles) {
 				String pr = ele.findElement(By.xpath("//div[contains(text(),'Free delivery')]//preceding::div[contains(@class,'_30jeq3 _1_WHN1')]")).getText();
 			
 				if(!pr.contains("Not Available")) {
-					String names=ele.findElement(By.xpath("child::div[contains(@class,'_4rR01T')]")).getText(); 
+					Thread.sleep(2000);
+					String names=ele.findElement(By.xpath("//div[contains(@class,'_4rR01T')]")).getText(); 
 					name.add(names);
 					
 					pr = pr.substring(1);
@@ -111,9 +113,10 @@ public class FindingMaxMinTvPrice {
 				break;
 			}//c
 		}//while
+
 	}//method
 	
-	@Test(priority=4)
+	@Test(priority=4 ,dependsOnMethods = {"method3"})
 	public void method4() throws Exception
 	{
 		//Find highest price and corresponding model name
