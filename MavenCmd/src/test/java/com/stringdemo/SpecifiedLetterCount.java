@@ -1,5 +1,7 @@
 package com.stringdemo;
 
+import java.util.Scanner;
+
 import org.testng.annotations.Test;
 
 public class SpecifiedLetterCount {

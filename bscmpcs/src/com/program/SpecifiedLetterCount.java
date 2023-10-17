@@ -1,4 +1,6 @@
-package com.stringdemo;
+package com.program;
+
+import java.util.Scanner;
 
 import org.testng.annotations.Test;
 
