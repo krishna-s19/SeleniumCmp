@@ -40,8 +40,13 @@
 					<plugin>
 						<!-- https://mvnrepository.com/artifact/org.apache.maven.surefire/surefire-booter -->
 						<groupId>org.apache.maven.surefire</groupId>
-						<artifactId>surefire-plugin</artifactId>
+						<artifactId>maven-surefire-plugin</artifactId>
 						<version>3.0.0-M3</version>
+						<configuration>
+							<includes>
+								<include>${testClasses}</include>
+							</includes>
+						</configuration>
 					</plugin>
 				</plugins>
 			</build>
@@ -63,11 +68,11 @@
 					<plugin>
 						<!-- https://mvnrepository.com/artifact/org.apache.maven.surefire/surefire-booter -->
 						<groupId>org.apache.maven.surefire</groupId>
-						<artifactId>surefire-plugin</artifactId>
+						<artifactId>maven-surefire-plugin</artifactId>
 						<version>3.0.0-M3</version>
 						<configuration>
 							<suiteXmlFiles>
-								<suiteXmlFile>${x}</suiteXmlFile>
+								<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
 							</suiteXmlFiles>
 						</configuration>
 					</plugin>
