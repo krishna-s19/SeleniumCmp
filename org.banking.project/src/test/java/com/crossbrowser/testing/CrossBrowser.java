@@ -17,10 +17,10 @@ public class CrossBrowser {
 	@Test
 	public void method() {
 		
-		Scanner brow = new Scanner(System.in);
-		System.out.println("Enter your browse name :");
-		String bName = brow.nextLine();
-		brow.close();
+		//Scanner brow = new Scanner(System.in);
+		//System.out.println("Enter your browse name :");
+		String bName = "chrome";//brow.nextLine();
+		//brow.close();
 		
 		if(bName.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
